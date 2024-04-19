@@ -77,6 +77,9 @@ npm run start:dev
 npx prisma studio
 ```
 
+## Segue a documentação :memo:
+ - [Documentação Postman](https://documenter.getpostman.com/view/20351037/2sA3Bn7YXE)
+
     
 ## Tecnologias :books:
 
