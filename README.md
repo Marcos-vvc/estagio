@@ -16,9 +16,9 @@
 ## Detalhes do projeto :memo:
 
 <p align="justify">
-Este projeto é uma solução robusta para o **gerenciamento de tarefas**, projetada para otimizar a produtividade e a eficiência da equipe. Ele apresenta uma estrutura de acesso de dois níveis: **Gerente** e **Colaborador**.
+Este projeto é uma solução robusta para o <strong>gerenciamento de tarefas</strong>, projetada para otimizar a produtividade e a eficiência da equipe. Ele apresenta uma estrutura de acesso de dois níveis: <strong>Gerente</strong> e <strong>Colaborador</strong>.
 
-O **Gerente** é o motor principal deste sistema. Ele é responsável por criar o projeto, registrar colaboradores no projeto e atribuir tarefas para os colaboradores executarem. Este perfil de usuário é criado com base no ID do perfil, permitindo ao gerente a flexibilidade de criar não apenas projetos, mas também tarefas.
+O <strong>Gerente</strong> é o motor principal deste sistema. Ele é responsável por criar o projeto, registrar colaboradores no projeto e atribuir tarefas para os colaboradores executarem. Este perfil de usuário é criado com base no ID do perfil, permitindo ao gerente a flexibilidade de criar não apenas projetos, mas também tarefas.
 
 O **Colaborador**, por outro lado, é o executor das tarefas atribuídas pelo gerente dentro do projeto. Este perfil de usuário é essencial para a realização dos objetivos do projeto.
 
