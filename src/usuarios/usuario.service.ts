@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common'
 import { UsuarioRepository } from './usuario-repository'
 import { PrismaService } from '../prisma/prisma.service'
 
@@ -14,6 +18,10 @@ export class UsuarioService {
     Email: string,
     perfilID: string,
   ): Promise<boolean> {
+    if (!perfilID) {
+      throw new BadRequestException('PerfilID não pode ser nulo')
+    }
+
     const perfil = await this.prisma.perfilUsuario.findUnique({
       where: { PerfilID: perfilID },
     })

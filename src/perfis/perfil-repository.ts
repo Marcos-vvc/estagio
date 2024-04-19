@@ -29,13 +29,12 @@ export class PerfilRepository {
     }
     const nomePerfilMinusculo = nomePerfil.toLowerCase()
 
-    if (
-      nomePerfilMinusculo !== 'colaborador' &&
-      nomePerfilMinusculo !== 'gerente'
-    ) {
-      throw new BadRequestException(
-        'Nome do perfil deve ser "colaborador" ou "gerente"',
-      )
+    const perfilExistente = await this.prisma.perfilUsuario.findFirst({
+      where: { NomePerfil: nomePerfil },
+    })
+
+    if (perfilExistente) {
+      throw new BadRequestException(`Perfil com nome ${nomePerfil} já existe`)
     }
 
     const perfil = await this.prisma.perfilUsuario.create({
