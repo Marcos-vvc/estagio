@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// modelo de usuários
+model Usuario {
+  UserID   String        @id @default(uuid())
+  Nome     String
+  Email    String
+  PerfilID String
+  Perfil   PerfilUsuario @relation(fields: [PerfilID], references: [PerfilID])
+  Projeto  Projeto[]
+  Tarefa   Tarefa[]
+}
+
+// modelo de perfis de usuário
+model PerfilUsuario {
+  PerfilID   String    @id @default(uuid())
+  NomePerfil String
+  Usuario    Usuario[]
+}
+
+// modelo de projetos
+model Projeto {
+  ProjetoID   String   @id @default(uuid())
+  NomeProjeto String
+  Descricao   String?
+  GerenteID   String
+  Gerente     Usuario  @relation(fields: [GerenteID], references: [UserID])
+  Tarefa      Tarefa[]
+}
+
+// modelo de tarefas
+model Tarefa {
+  TarefaID      String  @id @default(uuid())
+  NomeTarefa    String
+  Descricao     String?
+  ProjetoID     String
+  ResponsavelID String
+  Projeto       Projeto @relation(fields: [ProjetoID], references: [ProjetoID])
+  Responsavel   Usuario @relation(fields: [ResponsavelID], references: [UserID])
+}
